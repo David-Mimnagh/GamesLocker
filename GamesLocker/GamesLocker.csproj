@@ -1,21 +1,6 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProductVersion>8.0.30703</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{533F6091-BB2B-44B1-AD21-97A7319BE538}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GamesLocker</RootNamespace>
-    <AssemblyName>GamesLocker</AssemblyName>
-    <FileAlignment>512</FileAlignment>
-    <MonoGamePlatform>Windows</MonoGamePlatform>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <TargetFramework>netcoreapp3.1</TargetFramework>
     <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
@@ -24,15 +9,10 @@
     <DefineConstants>DEBUG;TRACE;WINDOWS</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
-    <PlatformTarget>x86</PlatformTarget>
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\$(MonoGamePlatform)\$(Platform)\$(Configuration)\</OutputPath>
-    <DefineConstants>TRACE;WINDOWS</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <Configurations>Debug;Release;Run</Configurations>
+    <OutputType>WinExe</OutputType>
+    <PublishReadyToRun>false</PublishReadyToRun>
+    <TieredCompilation>false</TieredCompilation>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>Icon.ico</ApplicationIcon>
@@ -41,31 +21,200 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Game1.cs" />
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="MonoGame.Framework">
-      <HintPath>$(MonoGameInstallDirectory)\MonoGame\v3.0\Assemblies\Windows\MonoGame.Framework.dll</HintPath>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Xml" />
-  </ItemGroup>
-  <ItemGroup>
+    <Content Include="Content\Files\Hangman\Category_Celebrity_Options.txt" />
+    <Content Include="Content\Files\Hangman\Category_Film_Options.txt" />
+    <Content Include="Content\Files\Hangman\Category_TV_Options.txt" />
+    <Content Include="Content\Images\Breakout\Back.png" />
+    <Content Include="Content\Images\Breakout\BackH.png" />
+    <Content Include="Content\Images\Breakout\Ball.png" />
+    <Content Include="Content\Images\Breakout\BrBackground.png" />
+    <Content Include="Content\Images\Breakout\Brick1.png" />
+    <Content Include="Content\Images\Breakout\Brick2.png" />
+    <Content Include="Content\Images\Breakout\Brick3.png" />
+    <Content Include="Content\Images\Breakout\Brick4-2.png" />
+    <Content Include="Content\Images\Breakout\Brick4-3.png" />
+    <Content Include="Content\Images\Breakout\Brick4.png" />
+    <Content Include="Content\Images\Breakout\PlayerPaddle.png" />
+    <Content Include="Content\Images\Breakout\Reset.png" />
+    <Content Include="Content\Images\Breakout\ResetH.png" />
+    <Content Include="Content\Images\ConnectFour\Back.png" />
+    <Content Include="Content\Images\ConnectFour\BackH.png" />
+    <Content Include="Content\Images\ConnectFour\blank.png" />
+    <Content Include="Content\Images\ConnectFour\board.png" />
+    <Content Include="Content\Images\ConnectFour\player1-H.png" />
+    <Content Include="Content\Images\ConnectFour\player1.png" />
+    <Content Include="Content\Images\ConnectFour\player2-H.png" />
+    <Content Include="Content\Images\ConnectFour\player2.png" />
+    <Content Include="Content\Images\ConnectFour\Reset.png" />
+    <Content Include="Content\Images\ConnectFour\ResetH.png" />
+    <Content Include="Content\Images\GuessingGame\Back.png" />
+    <Content Include="Content\Images\GuessingGame\BackH.png" />
+    <Content Include="Content\Images\GuessingGame\GGBackground.png" />
+    <Content Include="Content\Images\GuessingGame\Guess_1.png" />
+    <Content Include="Content\Images\GuessingGame\Guess_10.png" />
+    <Content Include="Content\Images\GuessingGame\Guess_10H.png" />
+    <Content Include="Content\Images\GuessingGame\Guess_1H.png" />
+    <Content Include="Content\Images\GuessingGame\Guess_2.png" />
+    <Content Include="Content\Images\GuessingGame\Guess_2H.png" />
+    <Content Include="Content\Images\GuessingGame\Guess_3.png" />
+    <Content Include="Content\Images\GuessingGame\Guess_3H.png" />
+    <Content Include="Content\Images\GuessingGame\Guess_4.png" />
+    <Content Include="Content\Images\GuessingGame\Guess_4H.png" />
+    <Content Include="Content\Images\GuessingGame\Guess_5.png" />
+    <Content Include="Content\Images\GuessingGame\Guess_5H.png" />
+    <Content Include="Content\Images\GuessingGame\Guess_6.png" />
+    <Content Include="Content\Images\GuessingGame\Guess_6H.png" />
+    <Content Include="Content\Images\GuessingGame\Guess_7.png" />
+    <Content Include="Content\Images\GuessingGame\Guess_7H.png" />
+    <Content Include="Content\Images\GuessingGame\Guess_8.png" />
+    <Content Include="Content\Images\GuessingGame\Guess_8H.png" />
+    <Content Include="Content\Images\GuessingGame\Guess_9.png" />
+    <Content Include="Content\Images\GuessingGame\Guess_9H.png" />
+    <Content Include="Content\Images\GuessingGame\Reset.png" />
+    <Content Include="Content\Images\GuessingGame\ResetH.png" />
+    <Content Include="Content\Images\Hangman\0.png" />
+    <Content Include="Content\Images\Hangman\0H.png" />
+    <Content Include="Content\Images\Hangman\1.png" />
+    <Content Include="Content\Images\Hangman\10.png" />
+    <Content Include="Content\Images\Hangman\10H.png" />
+    <Content Include="Content\Images\Hangman\11.png" />
+    <Content Include="Content\Images\Hangman\11H.png" />
+    <Content Include="Content\Images\Hangman\12.png" />
+    <Content Include="Content\Images\Hangman\12H.png" />
+    <Content Include="Content\Images\Hangman\13.png" />
+    <Content Include="Content\Images\Hangman\13H.png" />
+    <Content Include="Content\Images\Hangman\14.png" />
+    <Content Include="Content\Images\Hangman\14H.png" />
+    <Content Include="Content\Images\Hangman\15.png" />
+    <Content Include="Content\Images\Hangman\15H.png" />
+    <Content Include="Content\Images\Hangman\16.png" />
+    <Content Include="Content\Images\Hangman\16H.png" />
+    <Content Include="Content\Images\Hangman\17.png" />
+    <Content Include="Content\Images\Hangman\17H.png" />
+    <Content Include="Content\Images\Hangman\18.png" />
+    <Content Include="Content\Images\Hangman\18H.png" />
+    <Content Include="Content\Images\Hangman\19.png" />
+    <Content Include="Content\Images\Hangman\19H.png" />
+    <Content Include="Content\Images\Hangman\1H.png" />
+    <Content Include="Content\Images\Hangman\2.png" />
+    <Content Include="Content\Images\Hangman\20.png" />
+    <Content Include="Content\Images\Hangman\20H.png" />
+    <Content Include="Content\Images\Hangman\21.png" />
+    <Content Include="Content\Images\Hangman\21H.png" />
+    <Content Include="Content\Images\Hangman\22.png" />
+    <Content Include="Content\Images\Hangman\22H.png" />
+    <Content Include="Content\Images\Hangman\23.png" />
+    <Content Include="Content\Images\Hangman\23H.png" />
+    <Content Include="Content\Images\Hangman\24.png" />
+    <Content Include="Content\Images\Hangman\24H.png" />
+    <Content Include="Content\Images\Hangman\25.png" />
+    <Content Include="Content\Images\Hangman\25H.png" />
+    <Content Include="Content\Images\Hangman\2H.png" />
+    <Content Include="Content\Images\Hangman\3.png" />
+    <Content Include="Content\Images\Hangman\3H.png" />
+    <Content Include="Content\Images\Hangman\4.png" />
+    <Content Include="Content\Images\Hangman\4H.png" />
+    <Content Include="Content\Images\Hangman\5.png" />
+    <Content Include="Content\Images\Hangman\5H.png" />
+    <Content Include="Content\Images\Hangman\6.png" />
+    <Content Include="Content\Images\Hangman\6H.png" />
+    <Content Include="Content\Images\Hangman\7.png" />
+    <Content Include="Content\Images\Hangman\7H.png" />
+    <Content Include="Content\Images\Hangman\8.png" />
+    <Content Include="Content\Images\Hangman\8H.png" />
+    <Content Include="Content\Images\Hangman\9.png" />
+    <Content Include="Content\Images\Hangman\9H.png" />
+    <Content Include="Content\Images\Hangman\Back.png" />
+    <Content Include="Content\Images\Hangman\BackH.png" />
+    <Content Include="Content\Images\Hangman\CelebCat.png" />
+    <Content Include="Content\Images\Hangman\CelebCatH.png" />
+    <Content Include="Content\Images\Hangman\FilmCat.png" />
+    <Content Include="Content\Images\Hangman\FilmCatH.png" />
+    <Content Include="Content\Images\Hangman\HMBackground.png" />
+    <Content Include="Content\Images\Hangman\Reset.png" />
+    <Content Include="Content\Images\Hangman\ResetH.png" />
+    <Content Include="Content\Images\Hangman\Stand-HB.png" />
+    <Content Include="Content\Images\Hangman\Stand-HBA1.png" />
+    <Content Include="Content\Images\Hangman\Stand-HBA2.png" />
+    <Content Include="Content\Images\Hangman\Stand-HBAL1.png" />
+    <Content Include="Content\Images\Hangman\Stand-HBAL2.png" />
+    <Content Include="Content\Images\Hangman\Stand-noose.png" />
+    <Content Include="Content\Images\Hangman\Stand.png" />
+    <Content Include="Content\Images\Hangman\TVCat.png" />
+    <Content Include="Content\Images\Hangman\TVCatH.png" />
+    <Content Include="Content\Images\MainMenu\Background.png" />
+    <Content Include="Content\Images\MainMenu\Buttons\button_breakout.png" />
+    <Content Include="Content\Images\MainMenu\Buttons\button_breakout_hover.png" />
+    <Content Include="Content\Images\MainMenu\Buttons\button_connect-four.png" />
+    <Content Include="Content\Images\MainMenu\Buttons\button_connect-four_hover.png" />
+    <Content Include="Content\Images\MainMenu\Buttons\button_dungeon-escape.png" />
+    <Content Include="Content\Images\MainMenu\Buttons\button_dungeon-escape_hover.png" />
+    <Content Include="Content\Images\MainMenu\Buttons\button_flappy-burd.png" />
+    <Content Include="Content\Images\MainMenu\Buttons\button_flappy-burd_hover.png" />
+    <Content Include="Content\Images\MainMenu\Buttons\button_guessing-game.png" />
+    <Content Include="Content\Images\MainMenu\Buttons\button_guessing-game_hover.png" />
+    <Content Include="Content\Images\MainMenu\Buttons\button_hangman.png" />
+    <Content Include="Content\Images\MainMenu\Buttons\button_hangman_hover.png" />
+    <Content Include="Content\Images\MainMenu\Buttons\button_rock-paper-scissors.png" />
+    <Content Include="Content\Images\MainMenu\Buttons\button_rock-paper-scissors_hover.png" />
+    <Content Include="Content\Images\RockPaperScissors\1.png" />
+    <Content Include="Content\Images\RockPaperScissors\2.png" />
+    <Content Include="Content\Images\RockPaperScissors\3.png" />
+    <Content Include="Content\Images\RockPaperScissors\Back.png" />
+    <Content Include="Content\Images\RockPaperScissors\BackH.png" />
+    <Content Include="Content\Images\RockPaperScissors\confirm.png" />
+    <Content Include="Content\Images\RockPaperScissors\confirmH.png" />
+    <Content Include="Content\Images\RockPaperScissors\confirmS.png" />
+    <Content Include="Content\Images\RockPaperScissors\CS_Paper.png" />
+    <Content Include="Content\Images\RockPaperScissors\CS_Rock.png" />
+    <Content Include="Content\Images\RockPaperScissors\CS_Scissors.png" />
+    <Content Include="Content\Images\RockPaperScissors\C_Paper.png" />
+    <Content Include="Content\Images\RockPaperScissors\C_Rock.png" />
+    <Content Include="Content\Images\RockPaperScissors\C_Scissors.png" />
+    <Content Include="Content\Images\RockPaperScissors\PH_Paper.png" />
+    <Content Include="Content\Images\RockPaperScissors\PH_Rock.png" />
+    <Content Include="Content\Images\RockPaperScissors\PH_Scissors.png" />
+    <Content Include="Content\Images\RockPaperScissors\PS_Paper.png" />
+    <Content Include="Content\Images\RockPaperScissors\PS_Rock.png" />
+    <Content Include="Content\Images\RockPaperScissors\PS_Scissors.png" />
+    <Content Include="Content\Images\RockPaperScissors\P_Paper.png" />
+    <Content Include="Content\Images\RockPaperScissors\P_Rock.png" />
+    <Content Include="Content\Images\RockPaperScissors\P_Scissors.png" />
+    <Content Include="Content\Images\RockPaperScissors\reset.png" />
+    <Content Include="Content\Images\RockPaperScissors\resetH.png" />
+    <Content Include="Content\Images\RockPaperScissors\RPSBackground.png" />
+    <Content Include="Content\Images\TicTacToe\Back.png" />
+    <Content Include="Content\Images\TicTacToe\BackH.png" />
+    <Content Include="Content\Images\TicTacToe\Board.png" />
+    <Content Include="Content\Images\TicTacToe\box.png" />
+    <Content Include="Content\Images\TicTacToe\boxH.png" />
+    <Content Include="Content\Images\TicTacToe\C1.png" />
+    <Content Include="Content\Images\TicTacToe\C2.png" />
+    <Content Include="Content\Images\TicTacToe\C3.png" />
+    <Content Include="Content\Images\TicTacToe\cChip.png" />
+    <Content Include="Content\Images\TicTacToe\D-L.png" />
+    <Content Include="Content\Images\TicTacToe\D-R.png" />
+    <Content Include="Content\Images\TicTacToe\pChip.png" />
+    <Content Include="Content\Images\TicTacToe\Player1_ChipInfo.png" />
+    <Content Include="Content\Images\TicTacToe\Player2_ChipInfo.png" />
+    <Content Include="Content\Images\TicTacToe\R1.png" />
+    <Content Include="Content\Images\TicTacToe\R2.png" />
+    <Content Include="Content\Images\TicTacToe\R3.png" />
+    <Content Include="Content\Images\TicTacToe\Reset.png" />
+    <Content Include="Content\Images\TicTacToe\ResetH.png" />
+    <Content Include="Content\Images\TicTacToe\TTTBackground.png" />
     <Content Include="Icon.ico" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />
     <None Include="app.manifest" />
+    <None Include="Content\Fonts\MavenPro-Regular.ttf" />
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+  <ItemGroup>
+    <TrimmerRootAssembly Include="Microsoft.Xna.Framework.Content.ContentTypeReader" Visible="false" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.8.0.1641" />
+    <PackageReference Include="MonoGame.Content.Builder.Task" Version="3.8.0.1641" />
+  </ItemGroup>
 </Project>

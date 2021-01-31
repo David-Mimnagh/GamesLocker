@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using GamesLocker.GameStates;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
@@ -7,15 +8,21 @@ namespace GamesLocker
     /// <summary>
     /// This is the main type for your game.
     /// </summary>
-    public class Game1 : Game
+    public class MainGame : Game
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        int choice;
 
-        public Game1()
+        public MainGame()
         {
+            Mouse.WindowHandle = Window.Handle;
             graphics = new GraphicsDeviceManager(this);
+            graphics.PreferredBackBufferWidth = Constants.WINDOW_WIDTH;
+            graphics.PreferredBackBufferHeight = Constants.WINDOW_HEIGHT;
+            graphics.ApplyChanges(); 
             Content.RootDirectory = "Content";
+
         }
 
         /// <summary>
@@ -26,8 +33,8 @@ namespace GamesLocker
         /// </summary>
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
-
+            choice = 0;
+            this.IsMouseVisible = true;
             base.Initialize();
         }
 
@@ -37,10 +44,10 @@ namespace GamesLocker
         /// </summary>
         protected override void LoadContent()
         {
-            // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            GameStateManager.Instance.SetContent(Content);
+            GameStateManager.Instance.AddScreen(new MainMenuGameState(GraphicsDevice));
 
-            // TODO: use this.Content to load your game content here
         }
 
         /// <summary>
@@ -49,7 +56,7 @@ namespace GamesLocker
         /// </summary>
         protected override void UnloadContent()
         {
-            // TODO: Unload any non ContentManager content here
+            GameStateManager.Instance.UnloadContent();
         }
 
         /// <summary>
@@ -59,11 +66,16 @@ namespace GamesLocker
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
+            //Weird issue with resizing happening, have to research further.
+            graphics.PreferredBackBufferWidth = Constants.WINDOW_WIDTH;
+            graphics.PreferredBackBufferHeight = Constants.WINDOW_HEIGHT;
+            graphics.ApplyChanges();
+            
+
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            // TODO: Add your update logic here
-
+            GameStateManager.Instance.Update(gameTime);
             base.Update(gameTime);
         }
 
@@ -73,10 +85,7 @@ namespace GamesLocker
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
-
-            // TODO: Add your drawing code here
-
+            GameStateManager.Instance.Draw(spriteBatch);
             base.Draw(gameTime);
         }
     }
